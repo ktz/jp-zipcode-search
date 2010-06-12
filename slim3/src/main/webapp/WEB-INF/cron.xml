@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<cronentries/>
+<!--<cronentries>-->
+  <!--<cron>-->
+    <!--<url>/_ah/sessioncleanup?clear</url>-->
+    <!--<description>Clean up sessioins</description>-->
+    <!--<schedule>every day 00:00</schedule>-->
+  <!--</cron>-->
+<!--</cronentries>-->

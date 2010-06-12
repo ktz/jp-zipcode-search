@@ -1,0 +1,60 @@
+h1 {
+  margin-bottom: 0;
+  padding: 0.5em !important;
+  color: #fff;
+  background: #333;
+}
+h2 {
+  margin-bottom: 0.5em;
+  padding-left: 0.5em !important;
+  background: #ccc;
+}
+h3{
+  border-left: 3px solid #ccc;
+  line-height: 1;
+  padding-left: 0.5em;  
+  font-size: 1.3em;
+  margin: 2em 0 1em;
+}
+p, dl {
+  padding: 0 0.5em;
+}
+dd {
+  margin-left: 1em;
+}
+form {
+  margin: 0.5em 0;
+  padding: 0 0.5em;
+}
+.wrap {
+  max-width: 940px;
+  margin: 0 auto;
+  padding: 0 1em;
+  background: transparent;
+}
+.wrap:after {
+  display: block;
+  clear: both;
+  content: "";
+}
+.accent {
+  color: #f33;
+}
+.address {
+  margin-left: 1em;
+}
+#logo {
+  font-size: 1.5em;
+}
+#fcontent {
+  margin: 1em 0;
+  text-align: center;
+  color: #bbb;
+  background: #333;
+}
+#api, #search {
+  margin-bottom: 2em;
+}
+#footer a {
+  color: #fff;
+}

@@ -1,0 +1,12 @@
+upload data
+
+in the jp-zipcode-search directory
+
+appcfg.py upload_data --config_file=python/loader.py --filename=<csv_file_path> --kind=Zip --url=http://python.latest.jp-zipcode-search.appspot.com/remote_api python
+
+
+delete data
+
+in the jp-zipcode-search directory
+
+python/deleter.py <csv_file_path>

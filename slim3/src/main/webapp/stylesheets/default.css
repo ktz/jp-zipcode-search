@@ -1,0 +1,371 @@
+/*
+1. Display & Flow
+    display, visibility, float, clear
+2. Positioning
+    position, top, right, bottom, left, z-index
+3. Dimensions
+    width, min-width, max-width, height, min-height, max-height, overflow
+4. Margins, Paddings, Borders, Outline
+    margin, padding
+    border, border-width, border-style, border-color
+    outline, list-style
+    table-layout, caption-side, border-collapse, border-spacing, empty-cells
+5. Typographic styles
+    font, font-family, font-size, line-height, font-weight, text-align
+    text-indent, text-transform, text-decoration, letter-spacing, word-spacing
+    white-space, vertical-align, color
+6. Backgrounds
+    background, background-color, background-image, background-repeat,
+7. Others
+    opacity, cursor, content, quotes
+*/
+/* reset all style ======================================================== */
+html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, samp, small, strike, strong, sub, sup, tt, var, b, i, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, audio, bb, canvas, datagrid, datalist, details, dialog, eventsource, figure, footer, header, hgroup, mark, menu, meter, nav, output, progress, section, time, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+  background: transparent;
+}
+input, textarea {
+  font-size: 100%;
+}
+textarea {
+  vertical-align: top;
+}
+body {
+  line-height: 1;
+}
+article, aside, dialog, figure, footer, header, hgroup, nav, section {
+  display: block;
+}
+ul {
+  list-style: none;
+}
+blockquote, q {
+  quotes: none;
+}
+:focus {
+  outline: 0;
+}
+ins {
+  text-decoration: none;
+}
+del {
+  text-decoration: line-through;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+h1, h2, h3, h4, h5, h6, address, caption, cite, code, dfn, em, strong, th, var {
+  font-style: normal;
+  font-weight: normal;
+}
+/*a:link {color:#0044cc;}*/
+/* default style ========================================================== */
+body {
+  font-family: "Lucida Grande", "Hiragino Kaku Gothic Pro", "ヒラギノ角ゴPro W3", "Meiryo", "メイリオ", "MS PGothic", "MS Pゴシック", sans-serif;
+  line-height: 1.6;
+}
+noscript {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10000;
+  width: 100%;
+  text-align: center;
+  color: #fff;
+  background: #d53939;
+  opacity: 0.6;
+  filter: alpha(opacity=60);
+  -khtml-opacity: 0.6;
+  -moz-opacity: 0.6;
+}
+h1 {
+  margin: 0.5em 0;
+  font-size: 2em;
+}
+h2 {
+  /*margin: 0.5em 0;*/
+  font-size: 1.75em;
+}
+h3 {
+  margin: 0.5em 0;
+  font-size: 1.35em;
+}
+h4 {
+  font-size: 1.25em;
+}
+h5 {
+  font-size: 1.2em;
+}
+h6 {
+  margin: 0.5em 0;
+  font-size: 1.15em;
+}
+em {
+  font-style: normal;
+  font-weight: bold;
+}
+p {
+  margin-bottom: 1em;
+  padding: 0.5em 0;
+}
+strong {
+  font-weight: bold;
+}
+a {
+  text-decoration: none;
+}
+a:link {
+  color: #26c;
+}
+a:visited {
+  color: #666;
+}
+a:hover, a:active {
+  text-decoration: underline;
+  color: #c22;
+}
+a[rel~="external"], a[rel~="nofollow"] {
+  cursor: alias;
+}
+ul {}
+ol {
+  padding-left: 2em;
+  list-style-type: decimal;
+}
+pre {
+  background: #eee;
+  border: 1px solid #ddd;
+}
+fieldset {}
+legend {}
+img.left {
+  margin: 0 1em 1em 0;
+}
+img.right {
+  margin: 0 0 1em 1em;
+}
+address {}
+blockquote {
+  margin: 0 1.5em 1.5em 1.5em;
+  quotes: "\201c " " \201e";
+}
+blockquote:before {
+  font-weight: bold;
+  content: open-quote;
+}
+blockquote:after {
+  font-weight: bold;
+  content: close-quote;
+}
+q {
+  quotes: "\201c" "\201d";
+}
+hr {
+  border: none;
+  border-bottom: 1px solid;
+}
+.grid {
+  width: 100%;
+}
+.grid, .grid caption, .grid th, .grid td {
+  border: 1px solid;
+}
+.grid caption {
+  padding: 0.5em;
+  border-bottom:none;
+}
+.gird th, .grid td {
+  padding: 0.25em;
+}
+.grid thead th {
+  padding: 0.5em;
+}
+.grid tbody th {
+  vertical-align: top;
+  width: 20%;
+}
+.data {
+  width: 100%;
+  border: 1px solid;
+}
+.data caption {
+  padding: 0.5em;
+  border: 1px solid;
+  border-bottom: none;
+}
+.data th {
+  text-align: left;
+}
+.data th, .data td {
+  padding: 0 0.5em;
+}
+.data thead th, .data tfoot td {
+  padding: 0.25em 0.5em;
+}
+.data tbody {
+  overflow-x: hidden;
+  overflow-y: auto;
+  max-height: 10em;
+}
+.form > p {
+  margin-bottom: 3em;
+  padding-bottom: 2em;
+  border-bottom: 1px solid;
+}
+.form li {
+  display: block;
+  margin-bottom: 1em;
+}
+.form label {
+  display: inline-block;
+  width: 9em;
+  margin-right: 1em;
+  text-align: right;
+  vertical-align: top;
+}
+.form div {
+  display: inline-block;
+}
+.form p {
+  margin-left: 10.5em;
+  color: #888;
+}
+.form input[type="text"], .form input[type="password"], .form textarea {
+  border-radius: 5px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  padding: 5px;
+  border: 1px solid #ccc;
+}
+.form input[type="text"]:focus, .form input[type="password"]:focus, .form textarea:focus {
+  border-color: rgba(150, 150, 150, 0.75);
+  -moz-box-shadow: 0 0 8px rgba(30, 30, 30, 0.5);
+  -webkit-box-shadow: 0 0 8px rgba(82, 168, 236, 0.5);
+  outline: mideum none;
+}
+.form input[type="submit"] {
+  position: relative;
+  margin: 1em 0.5em 0 10.3em;
+  padding: 5px 10px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  color: #fff;
+  background: #444;
+  border: 1px solid #888;
+  -moz-box-shadow: 2px 2px 6px rgba(0,0,0,0.6);
+  -webkit-box-shadow: 2px 2px 6px rgba(0,0,0,0.6);
+}
+.form input[type="submit"]:hover {
+  background-color: #222;
+  cursor: pointer;
+}
+.form input[type="submit"]:active {
+  top: 1px;
+}
+.form textarea {
+  width: 60%;
+}
+.form fieldset {
+}
+.form legend {
+  font-size: 1.5em;
+  border-left: 5px solid #ccc;
+  margin: 1em 0.5em 0;
+  padding: 0;
+  padding-left: 0.5em;
+}
+.form label.radio {
+  display: block;
+  width: 100%;
+}
+.inline {
+  display: inline !important;
+}
+.horizontal li {
+  display: inline-block;
+  padding: 0 0.5em;
+}
+.headered li {
+  margin-bottom: 1em;
+}
+.headered h4 {
+  width: 10em;
+  font-size: 1em;
+  float: left;
+}
+.headered div {
+  margin-left: 10.5em;
+}
+.left {
+  float: left;
+}
+.right {
+  float: right;
+}
+.clear:after {
+  display: block;
+  clear: both;
+  content: "";
+}
+.tMargin {
+  margin-top: 2em;
+}
+.tBorder {
+  padding-top: 1em;
+  border-top: 1px solid;
+}
+.bMargin {
+  margin-bottom: 2em;
+}
+.bBorder, tr.bBorder td, tr.bBorder th {
+  padding-bottom: 1em;
+  border-bottom: 1px solid;
+}
+.bBorderLight, tr.bBorderLight td, tr.bBorderLight th {
+  border-bottom: 1px dotted;
+}
+.aLeft {
+  text-align: left;
+}
+.aCenter {
+  text-align: center;
+}
+.aRight {
+  text-align: right;
+}
+.aTop {
+  vertical-align: top;
+}
+.aMiddle {
+  vertical-align: middle;
+}
+.aBottom{
+  vertical-align: bottom;
+}
+
+.round {
+  padding: 5px;
+  border-radius: 5px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+}
+.transparent {
+  opacity: 0.6;
+  filter: alpha(opacity=60);
+  -khtml-opacity: 0.6;
+  -moz-opacity: 0.6;
+}
+#legacy {
+  display: none;
+}
+.wait {
+  background: url(/images/spinner.gif) no-repeat;
+  width: 24px;
+  height: 24px;
+}

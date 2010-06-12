@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <title>郵便番号検索API</title>
+  <script type="text/javascript" src="/javascripts/elements.js"></script>
+  <link rel="stylesheet" type="text/css" href="/stylesheets/default.css" />
+  <link rel="stylesheet" type="text/css" href="/stylesheets/application.css" />
+  <!--[if IE]><link rel="stylesheet" href="/stylesheeets/damnie.css" type="text/css" media="screen" /><![endif]-->
+  <meta name="verify-v1" content="XyjUO4slfF6AgnfD6xwrmkJCapM7I3oS3a58ybQGubU=" />
+  <link rel="shortcut icon" href="/favicon.ico" />
+</head>
+<body>
+  <header id="header">
+    <div class="wrap">
+      <h1 class="round">郵便番号検索API</h1>
+      <p id="date" class="right"></p>
+    </div>
+  </header>
+  <section id="content">
+    <div class="wrap">
+      <section id="search">
+        <h2 class="round">検索</h2>
+        <form action="/address" method="get">
+          <fieldset>
+            <label for="pref">都道府県</label>
+            <input type="text" name="pref" size="7" id="pref" />
+            <label for="city">市区町村</label>
+            <input type="text" name="city" size="11" id="city" />
+            <label for="address">町域</label>
+            <input type="text" name="street" size="11" id="address" />
+            <input type="submit" value="検索" id="search_by_address_submit" />
+          </fieldset>
+        </form>
+        <form action="/" method="get">
+          <fieldset>
+            <label for="zipcode">郵便番号</label>
+            <input type="text" name="zipcode" size="7" id="zipcode" />
+            <input type="submit" value="検索" id="search_by_zipcode_submit" />
+          </fieldset>
+        </form>
+        <div id="result"></div>
+        <div id="map"></div>
+      </section>
+      <section id="api">
+        <h2 class="round">API</h2>
+        <p>requestの結果はjsonで返却。上限は1,000件まで。 callbackは[a-zA-Z0-9_]で。<br />responseは下記のrequestで確認して下さい。</p>
+        <div class="bMargin">
+          <h3>住所検索API</h3>
+          <p>https://jp-zipcode-search.appspot.com/zipcode/<span class="accent">郵便番号</span>?callback=<span class="accent">CALLBACK</span><br />https://jp-zipcode-search.appspot.com/zipcode?zipcode=<span class="accent">郵便番号</span>&amp;callback=<span class="accent">CALLBACK</span></p>
+          <dl>
+            <dt>sample</dt>
+            <dd><a href="https://jp-zipcode-search.appspot.com/zipcode/9390351">https://jp-zipcode-search.appspot.com/zipcode/9390351</a></dd>
+            <dd><a href="https://jp-zipcode-search.appspot.com/zipcode/9390351?callback=callback">https://jp-zipcode-search.appspot.com/zipcode/9390351?callback=callback</a></dd>
+            <dt>bad sample</dt>
+            <dd><a href="https://jp-zipcode-search.appspot.com/zipcode/100-0000?callback=callback">https://jp-zipcode-search.appspot.com/zipcode/100-0000?callback=callback</a></dd>
+          </dl>
+        </div>
+        <div class="bMargin">
+          <h3>郵便番号検索API</h3>
+          <p>https://jp-zipcode-search.appspot.com/address/<span class="accent">都道府県</span>/<span class="accent">市区町村</span>/<span class="accent">町域</span>?callback=<span class="accent">CALLBACK</span><br />https://jp-zipcode-search.appspot.com/address?pref=<span class="accent">都道府県</span>&amp;city=<span class="accent">市区町村</span>&amp;address=<span class="accent">町域</span>&amp;callback=<span class="accent">CALLBACK</span></p>
+          <dl>
+            <dt>sample</dt>
+            <dd><a href="https://jp-zipcode-search.appspot.com/address/東京都/千代田区/千代田">https://jp-zipcode-search.appspot.com/address/東京都/千代田区/千代田</a></dd>
+            <dd><a href="https://jp-zipcode-search.appspot.com/address/東京都/千代田区/千代田?callback=callback">https://jp-zipcode-search.appspot.com/address/東京都/千代田区/千代田?callback=callback</a></dd>
+            <dd><a href="https://jp-zipcode-search.appspot.com/address/東京都/千代田区?callback=callback">https://jp-zipcode-search.appspot.com/address/東京都/千代田区?callback=callback</a></dd>
+            <dd><a href="https://jp-zipcode-search.appspot.com/address/東京都?callback=callback">https://jp-zipcode-search.appspot.com/address/東京都?callback=callback</a></dd>
+            <dt>bad sample</dt>
+            <dd><a href="https://jp-zipcode-search.appspot.com/address/東京都/千代田?callback=callback">https://jp-zipcode-search.appspot.com/address/東京都/千代田?callback=callback</a></dd>
+            <dd><a href="https://jp-zipcode-search.appspot.com/address/tokyo?callback=callback">https://jp-zipcode-search.appspot.com/address/tokyo?callback=callback</a></dd>
+          </dl>
+        </div>
+      </section>
+      <p>当サイトは<a href="http://www.post.japanpost.jp/zipcode/dl/oogaki.html" rel="nofollow external">日本郵便</a>のデータを使用しています。<br />APIは<a href="http://lext.jp">LEXT</a>でも使用しています。</p>
+    </div>
+  </section>
+  <footer id="footer">
+    <div class="wrap">
+      <div id="fcontent" class="round">
+        <span>&copy;2010 Katsuji Matsui <a href="http://twitter.com/ktzm">@ktzm</a></span>
+      </div>
+    </div>
+  </footer>
+  <noscript class="transparent"><p>JavaScriptを有効にして下さい</p></noscript>
+  <div id="legacy" class="transparent">
+    <p>当サイトは、ご利用のブラウザでは正常に表示されない、または動作しない場合があります。<br /><a href="http://www.microsoft.com/japan/windows/products/winfamily/ie/default.mspx" rel="nofollow">IE8</a>, <a href="http://mozilla.jp/firefox/" rel="nofollow">Firefox</a>, <a href="http://www.apple.com/jp/safari/" rel="nofollow">Safari</a>, <a href="http://www.google.co.jp/chrome" rel="nofollow">Chrome</a> いずれかのブラウザをご使用することを推奨します。</p>
+    <a href="#" onclick="$('legacy').fade();return false;">hide</a>
+  </div>
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/mootools/1.2.4/mootools-yui-compressed.js"></script>
+<script type="text/javascript" src="/javascripts/mootools-more.js"></script>
+<script type="text/javascript" src="/javascripts/application.js"></script>
+<script src="http://maps.google.com/maps?file=api&amp;v=2&amp;sensor=false&amp;key=ABQIAAAAHamYOK0-xP4UvLm9_uaQVRToTVTUQuTzkdzadffUPha7FTiJmRQdbq5J7ohhSdiv-WWkNjIbwWHgAw" type="text/javascript"></script>
+<script type="text/javascript" src="https://ssl.google-analytics.com/ga.js"></script>
+<script type="text/javascript">//<![CDATA[
+  try {
+    var pageTracker = _get._getTracker('UA-5822976-3');
+    pageTracker._trackPageview();
+  } catch(err) {}
+//]]></script>
+</body>
+</html>
