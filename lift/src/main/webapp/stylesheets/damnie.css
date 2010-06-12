@@ -1,0 +1,33 @@
+/*
+ie6 and below
+  * html SELECTOR {}
+ie7 only
+  *:first-child+html SELECTOR {}
+SELECTOR {
+  *color: #f00 targets ie6 and ie7
+  _color: #f00 targets ie6
+}
+*/
+* {zoom:1!important;}
+* html .wrap{
+  width:expression(document.body.clientWidth > 942? "940px" : "auto");
+}
+* html #legacy{
+  display:block;
+  position:absolute;
+  top:0;
+  left:0;
+  z-index:10000;
+  width:100%;
+  text-align:center;
+  background:#f00;
+  filter:alpha(opacity=60);
+}
+* html #legacy p{
+  margin-bottom:0;
+  color:#fff;
+}
+* html #legacy a{
+  color:#fff;
+  font-weight:bold;
+}

@@ -1,0 +1,39 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:lift="http://liftweb.net/">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+  <title>JP ZIP code search</title>
+  <link href="/stylesheets/default.css" rel="stylesheet" media="screen" />
+  <link href="/stylesheets/application.css" rel="stylesheet" media="screen" />
+  <!--[if IE]><link rel="stylesheet" href="/stylesheets/damnie.css" type="text/css" media="screen" /><![endif]-->
+  <meta name="verify-v1" content="XyjUO4slfF6AgnfD6xwrmkJCapM7I3oS3a58ybQGubU=" />
+</head>
+<body>
+  <div class="wrap">
+    <div id="header" class="round">
+      <h1><a href="/">JP ZIP code search</a></h1>
+    </div>
+    <div id="date" class="clear">
+      <div class="right">updated at <lift:Application.updatedAt/></div>
+    </div>
+    <div id="content">
+      <lift:bind name="content"/>
+    </div>
+    <div id="footer" class="round aCenter">
+      <span>&copy;2010 Katsuji Matsui (<a href="http://ktz.appspot.com/">ktz lab</a>), designer of <a href="http://lext.jp">LEXT</a></span>
+      <span>Request? Question? <a href="&#x6d;&#97;&#x69;&#108;&#116;&#x6f;&#58;&#x6b;&#x61;&#x74;&#x73;&#117;&#106;&#105;&#x2e;&#x6d;&#97;&#116;&#115;&#117;&#105;&#64;&#103;&#109;&#x61;&#x69;&#x6c;&#x2e;&#99;&#x6f;&#x6d;">Email me</a>.</span>
+    </div>
+  </div>
+  <noscript class="transparent"><p>JavaScriptを有効にして下さい</p></noscript>
+  <div id="legacy" class="transparent">
+    <p>当サイトは、ご利用のブラウザでは正常に表示されない、または動作しない場合があります。<br /><a href="http://www.microsoft.com/japan/windows/products/winfamily/ie/default.mspx" rel="nofollow">IE8</a>, <a href="http://mozilla.jp/firefox/" rel="nofollow">Firefox</a>, <a href="http://www.apple.com/jp/safari/" rel="nofollow">Safari</a>, <a href="http://www.google.co.jp/chrome" rel="nofollow">Chrome</a> いずれかのブラウザをご使用することを推奨します。</p>
+    <a href="#" onclick="$('legacy').fade();return false;">hide</a>
+  </div>
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/mootools/1.2.3/mootools-yui-compressed.js"></script>
+  <script type="text/javascript" src="/javascripts/mootools-more.js"></script>
+  <script src="http://maps.google.com/maps?file=api&amp;v=2&amp;sensor=false&amp;key=ABQIAAAAHamYOK0-xP4UvLm9_uaQVRToTVTUQuTzkdzadffUPha7FTiJmRQdbq5J7ohhSdiv-WWkNjIbwWHgAw" type="text/javascript"></script>
+  <script type="text/javascript" src="/javascripts/application.js"></script>
+  <lift:Analytics.code/>
+</body>
+</html>

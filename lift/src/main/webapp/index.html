@@ -1,0 +1,61 @@
+<lift:surround with="default" at="content">
+<div>
+  <h2 class="round">郵便番号検索</h2>
+  <form action="/" method="get">
+    <fieldset>
+      <label for="pref">都道府県</label>
+      <input type="text" name="pref" size="7" id="pref" />
+      <label for="city" class="lMargin">市区町村</label>
+      <input type="text" name="city" size="11" id="city" />
+      <label for="address" class="lMargin">町域</label>
+      <input type="text" name="address" size="11" id="address" />
+      <input type="submit" value="検索" id="address_search_submit" />
+    </fieldset>
+  </form>
+  <div id="address_search_result" class="result"></div>
+</div>
+<div>
+  <h2 class="round">住所検索</h2>
+  <form action="/" method="get">
+    <fieldset>
+      <label for="zipcode">郵便番号</label>
+      <input type="text" name="zipcode" size="7" id="zipcode" />
+      <input type="submit" value="検索" id="zipcode_search_submit" />
+    </fieldset>
+  </form>
+  <div id="zipcode_search_result" class="result"></div>
+</div>
+<div id="map" class="tMargin"></div>
+<div>
+  <h2 class="round">API</h2>
+  <p>リクエストの結果はjsonで返却。上限は1,000件まで。コールバックは[a-zA-Z0-9_]で。<br />返されるデータは下記のリクエストで確認して下さい。</p>
+  <div class="bMargin">
+    <h3 class="round">住所検索API</h3>
+    <p>https://jp-zipcode-search.appspot.com/zipcode/<span class="accent">&lt;&lt; 郵便番号 (7桁・ハイフン無し) &gt;&gt;</span>?callback=<span class="accent">&lt;&lt; CALLBACK &gt;&gt;</span></p>
+    <dl>
+      <dt>サンプル　リクエスト</dt>
+      <dd><a href="https://jp-zipcode-search.appspot.com/zipcode/9390351">https://jp-zipcode-search.appspot.com/zipcode/9390351</a></dd>
+      <dd><a href="https://jp-zipcode-search.appspot.com/zipcode/9390351?callback=callback">https://jp-zipcode-search.appspot.com/zipcode/9390351?callback=callback</a></dd>
+      <dt>サンプル　リクエスト（エラー）</dt>
+      <dd><a href="https://jp-zipcode-search.appspot.com/zipcode/100-0000?callback=callback">https://jp-zipcode-search.appspot.com/zipcode/100-0000?callback=callback</a></dd>
+    </dl>
+  </div>
+  <div>
+    <h3 class="round">郵便番号検索API</h3>
+    <p>https://jp-zipcode-search.appspot.com/address/<span class="accent">&lt;&lt; 都道府県 &gt;&gt;</span>/<span class="accent">&lt;&lt; 市区町村 &gt;&gt;</span>/<span class="accent">&lt;&lt; 町域 &gt;&gt;</span>?callback=<span class="accent">&lt;&lt; CALLBACK &gt;&gt;</span></p>
+    <dl>
+      <dt>サンプル　リクエスト</dt>
+      <dd><a href="https://jp-zipcode-search.appspot.com/address/東京都/千代田区/千代田">https://jp-zipcode-search.appspot.com/address/東京都/千代田区/千代田</a></dd>
+      <dd><a href="https://jp-zipcode-search.appspot.com/address/東京都/千代田区/千代田?callback=callback">https://jp-zipcode-search.appspot.com/address/東京都/千代田区/千代田?callback=callback</a></dd>
+      <dd><a href="https://jp-zipcode-search.appspot.com/address/東京都/千代田区?callback=callback">https://jp-zipcode-search.appspot.com/address/東京都/千代田区?callback=callback</a></dd>
+      <dd><a href="https://jp-zipcode-search.appspot.com/address/東京都?callback=callback">https://jp-zipcode-search.appspot.com/address/東京都?callback=callback</a></dd>
+      <dt>サンプル　リクエスト（エラー）</dt>
+      <dd><a href="https://jp-zipcode-search.appspot.com/address/東京都/千代田?callback=callback">https://jp-zipcode-search.appspot.com/address/東京都/千代田?callback=callback</a></dd>
+      <dd><a href="https://jp-zipcode-search.appspot.com/address/tokyo?callback=callback">https://jp-zipcode-search.appspot.com/address/tokyo?callback=callback</a></dd>
+    </dl>
+  </div>
+</div>
+<div class="tMargin">
+  <p>当サイトは<a href="http://www.post.japanpost.jp/zipcode/dl/oogaki.html" rel="nofollow">こちら</a>のデータを使用しています。</p>
+</div>
+</lift:surround>

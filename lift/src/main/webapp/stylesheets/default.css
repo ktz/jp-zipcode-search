@@ -1,0 +1,385 @@
+/*
+1. Display & Flow
+    display, visibility, float, clear
+2. Positioning
+    position, top, right, bottom, left, z-index
+3. Dimensions
+    width, min-width, max-width, height, min-height, max-height, overflow
+4. Margins, Paddings, Borders, Outline
+    margin, padding
+    border, border-width, border-style, border-color
+    outline, list-style
+    table-layout, caption-side, border-collapse, border-spacing, empty-cells
+5. Typographic styles
+    font, font-family, font-size, line-height, font-weight, text-align
+    text-indent, text-transform, text-decoration, letter-spacing, word-spacing
+    white-space, vertical-align, color
+6. Backgrounds
+    background, background-color, background-image, background-repeat,
+7. Others
+    opacity, cursor, content, quotes
+*/
+/* reset all style ======================================================== */
+html,body,div,span,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,samp,small,strike,strong,sub,sup,tt,var,b,i,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,audio,bb,canvas,datagrid,datalist,details,dialog,eventsource,figure,footer,header,hgroup,mark,menu,meter,nav,output,progress,section,time,video{
+  margin:0;
+  padding:0;
+  border:0;
+  outline:0;
+  font-size:100%;
+  vertical-align:baseline;
+  background:transparent;
+}
+body{
+  line-height:1;
+}
+.wrap{
+  max-width:940px;
+  margin:0 auto;
+  padding:0 10px;
+}
+header,footer,section,aside,article,nav{display:block;}
+ul{
+  list-style:none;
+}
+blockquote,q{
+  quotes:none;
+}
+:focus{
+  outline:0;
+}
+ins{
+  text-decoration:none;
+}
+del{
+  text-decoration:line-through;
+}
+table{
+  border-collapse:collapse;
+  border-spacing:0;
+}
+h1,h2,h3,h4,h5,h6,address,caption,cite,code,dfn,em,strong,th,var{
+  font-style:normal;
+  font-weight:normal;
+}
+/* default style ========================================================== */
+body{
+  font-family:"Lucida Grande","Hiragino Kaku Gothic Pro","ヒラギノ角ゴPro W3","Meiryo","メイリオ","MS PGothic","MS Pゴシック",sans-serif;
+  line-height:1.6;
+}
+noscript{
+  position:fixed;
+  top:0;
+  left:0;
+  z-index:10000;
+  width:100%;
+  text-align:center;
+  color:#fff;
+  background:#d53939;
+}
+h1{
+  margin:0.2em;
+  font-family:"Verdana";
+  font-size:2em;
+}
+h2{
+  margin:0.5em 0;
+  font-size:1.75em;
+}
+h3{
+  margin:0.5em 0;
+  font-size:1.35em;
+}
+h4{
+  font-size:1.25em;
+}
+h5{
+  font-size:1.2em;
+}
+h6{
+  margin:0.5em 0;
+  font-size:1.15em;
+}
+em{
+  font-style:normal;
+  font-weight:bold;
+}
+p{
+  margin-bottom:1em;
+  padding:0.5em;
+}
+strong{}
+a{
+  text-decoration:none;
+}
+a:link{
+  color:#26c;
+}
+a:visited{
+  color:#666;
+}
+a:hover,a:active{
+  text-decoration:underline;
+  color:#c22;
+}
+a.external{
+  cursor:alias;
+}
+ul{}
+ol{
+  padding-left:2em;
+  list-style-type:decimal;
+}
+fieldset{}
+legend{
+  margin:0 3%;
+}
+img{
+  border:none;
+}
+img.left{
+  margin:0 1em 1em 0;
+}
+img.right{
+  margin:0 0 1em 1em;
+}
+address{}
+blockquote{
+  margin:0 1.5em 1.5em 1.5em;
+  color:#666;
+  quotes:"\201c " " \201e";
+}
+blockquote:before{
+  font-weight:bold;
+  content:open-quote;
+}
+blockquote:after{
+  font-weight:bold;
+  content:close-quote;
+}
+q{
+  quotes:"\201c" "\201d";
+}
+hr{
+  clear:both;
+  height:1px;
+  border-top:none;
+  border-right:none;
+  border-bottom:1px solid #c0c0c0;
+  border-left:none;
+}
+input,textarea{
+  font-size:100%;
+}
+table{
+  width:100%;
+}
+table,th,td{
+  padding:0.5em;
+}
+table.grid,table.grid th,table.grid td{
+  border:1px solid #c0c0c0;
+}
+table.grid th{
+  vertical-align:top;
+}
+table.grid caption{
+  padding:1em;
+}
+table.grid caption,table.grid th{
+  color:#fff;
+  background:#333;
+}
+table.grid .label{
+  width:20%;
+}
+table.grid tr.odd{}
+table.grid tr.even{
+  background:#e0e0e0;
+}
+fieldset.form{
+  margin-bottom:2em;
+  padding:0 2em;
+}
+.form legend{
+  padding:1em;
+}
+/*.form h1{
+  margin-bottom:1em;
+  font-size:1.2em;
+  font-weight:bold;
+}*/
+.form > p{
+  margin-bottom:3em;
+  padding-bottom:2em;
+  border-bottom:1px solid #dedede;
+  color:#666;
+}
+.form li{
+  display:block;
+  margin-bottom:1em;
+}
+.form li label{
+  display:inline-block;
+  width:9em;
+  margin-right:1em;
+  text-align:right;
+  vertical-align:top;
+}
+.form li div{
+  display:inline-block;
+}
+.form li p{
+  margin-left:10em;
+}
+.form li input{
+  vertical-align:top;
+}
+.form li textarea{
+  width:60%;
+}
+.form fieldset{
+  padding:0 1em;
+  border:1px solid #999;
+}
+.form fieldset legend{
+  padding:1em;
+}
+.form fieldset label.radio{
+  display:block;
+  width:100%;
+  background:#fcc;
+}
+.form .submit{
+  margin-top:1em;
+  text-align:center;
+}
+.inline{
+  display:inline!important;
+}
+.inline div{
+  display:inline!important;
+}
+ul.info label{
+  float:left;
+  width:8em;
+}
+ul.horizontal li{
+  display:inline-block;
+  padding:0 0.5em;
+}
+.left{
+  float:left;
+}
+.right{
+  float:right;
+}
+.clearBoth{
+  clear:both;
+}
+.clear:after{
+  display:block;
+  visibility:hidden;
+  clear:both;
+  height:0;
+  line-height:0;
+  content:".";
+}
+.clear{
+  display:inline-block;
+  background:transparent;
+}
+html[ xmlns] .clear{
+  display:block;
+}
+* html .clear{
+  height:1%;
+}
+.tMargin{
+  margin-top:1em;
+}
+.rMargin{
+  margin-right:1em;
+}
+.bMargin{
+  margin-bottom:1em;
+}
+.lMargin{
+  margin-left:1em;
+}
+.tBorder{
+  padding-top:1em;
+  border-top:1px solid #c0c0c0;
+}
+.bBorder,tr.bBorder td,tr.bBorder th{
+  padding-bottom:1em;
+  border-bottom:1px solid #c0c0c0;
+}
+.bBorderLight,tr.bBorderLight td,tr.bBorderLight th{
+  border-bottom:1px dotted #c0c0c0;
+}
+.aLeft{
+  text-align:left;
+}
+.aCenter{
+  text-align:center;
+}
+.aRight{
+  text-align:right;
+}
+.aTop{
+  vertical-align:top;
+}
+.aMiddle{
+  vertical-align:middle;
+}
+.aBottom{
+  vertical-align:bottom;
+}
+.lineThrough{
+  text-decoration:line-through!important;
+}
+.error{
+  color:#fff;
+  background:#d53939;
+}
+.warning{
+  color:#f00;
+}
+.notice{
+  color:#0f0;
+}
+.round{
+  padding:5px;
+  border-radius:5px;
+  -moz-border-radius:5px;
+  -webkit-border-radius:5px;
+}
+.tRound{
+  padding:5px;
+  border-radius:5px 5px 0 0;
+  -moz-border-radius-topleft:5px;
+  -moz-border-radius-topright:5px;
+  -webkit-border-top-left-radius:5px;
+  -webkit-border-top-right-radius:5px;
+}
+.bRound{
+  padding:5px;
+  border-bottom-left-radius:5px;
+  border-bottom-right-radius:5px;
+  -moz-border-radius-bottomleft:5px;
+  -moz-border-radius-bottomright:5px;
+  -webkit-border-bottom-left-radius:5px;
+  -webkit-border-bottom-right-radius:5px;
+}
+.shadow{
+  -webkit-box-shadow:2px 2px 6px rgba(0,0,0,0.6);
+}
+.transparent{
+  opacity:0.6;
+  filter:alpha(opacity=60);
+  -khtml-opacity:0.6;
+  -moz-opacity:0.6;
+}
+#legacy{
+  display:none;
+}

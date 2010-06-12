@@ -1,0 +1,13 @@
+#header,#footer{background:#333;margin-top:1em;color:#fff;}
+#footer{margin-bottom:1em;}
+#footer a:link,#footer a:visited{color:#ccc;}
+#footer a:hover,#footer a:active{color:#fff;}
+h1,h2,h3{padding-left:0.5em;}
+h1 a{color:#fff!important;text-decoration:none!important;}
+h2{background:#ccc;}
+h3{background:#ddd;}
+.result{padding-left:0.5em;background:#cfc;}
+.accent{color:#f33;}
+dl,fieldset{padding:0 0.5em;}
+#date{width:98%;}
+#footer span{margin:0 1em;}
